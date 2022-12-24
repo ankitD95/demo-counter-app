@@ -5,7 +5,7 @@ pipeline{
         stage('git checkout')
         {
             steps{
-                git branch: 'main', url: 'https://github.com/ankitD95/demo-counter-app.git'
+                git branch: 'FeatureA', url: 'https://github.com/ankitD95/demo-counter-app.git'
             }
         }
 
