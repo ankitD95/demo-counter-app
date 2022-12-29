@@ -12,19 +12,19 @@ pipeline{
         stage('UNIT Test')
         {
             steps{
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('INTEGRATION Test')
         {
             steps{
-                sh 'mvn verify -DskipUnitTests'
+                bat 'mvn verify -DskipUnitTests'
             }
         }
         stage('Maven Build')
         {
             steps{
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
 
