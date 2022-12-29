@@ -27,6 +27,24 @@ pipeline{
                 bat 'mvn clean install'
             }
         }
+        stage('static code anaysis')
+        {
+            steps{
+                    script{
+                        withSonarQubeEnv(credentialsId: 'sonar-api') {
+                           bat "mvn clean package sonar:sonar"
+                        }
+                    }
+                }
+        }
+        stage('Code Quality Check')
+        {
+            steps{
+                script{
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
+                }
+            }
+        }
 
 
 
